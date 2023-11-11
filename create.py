@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, Table
 from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
+from sqlalchemy import create_engine
 
 Base = declarative_base()
 
@@ -78,3 +79,10 @@ class HealthMetric(Base):
     body_fat_percentage = Column(Float)
     heart_rate = Column(Integer)
     blood_pressure = Column(Integer)
+
+# Create a SQLAlchemy engine that will interact with the SQLite database
+engine = create_engine('sqlite:///app.db')
+
+# Create all tables in the engine. This is equivalent to "Create Table"
+# statements in raw SQL.
+Base.metadata.create_all(engine)

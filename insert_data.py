@@ -19,6 +19,11 @@ workout_types = ['Running', 'Weightlifting', 'Yoga', 'Swimming', 'Cycling']
 # Define some realistic fitness goals
 goals = ['Lose weight', 'Build muscle', 'Improve endurance', 'Increase flexibility']
 
+# Add these goals to the Goal table
+for goal in goals:
+    goal_record = Goal(goal=goal)
+    session.add(goal_record)
+
 # Add these workout types to the WorkoutType table
 for workout_type in workout_types:
     workout = WorkoutType(type=workout_type)
