@@ -29,7 +29,7 @@ class User(Base):
 class Goal(Base):
     __tablename__ = 'goals'
     id = Column(Integer, primary_key=True)
-    description = Column(String)
+    goal = Column(String)
 
 class Workout(Base):
     __tablename__ = 'workouts'
@@ -83,6 +83,5 @@ class HealthMetric(Base):
 # Create a SQLAlchemy engine that will interact with the SQLite database
 engine = create_engine('sqlite:///app.db')
 
-# Create all tables in the engine. This is equivalent to "Create Table"
-# statements in raw SQL.
+# Recreate all tables
 Base.metadata.create_all(engine)
